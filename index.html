@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=400 initial-scale=0.8, minimum-scale=0.8, user-scalable=no">
+
+   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.cs" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+   
+   <link rel="stylesheet" href="./css/style.css">
+
+   <title>Калькулятор</title>
+</head>
+<body>
+   <div class="wrapper">
+      <div class="container">
+         
+         <div id="block-result" class="block-result">
+            <input id="output" class="block-result__output" maxlength="21" disabled></input>
+            <input id="input" type="text" class="block-result__input" placeholder="0" disabled></input>
+            <!--История -->
+            <div id="history" class="history">
+               <img class="history__img" src="images/History.png";>
+               <p class="history__title">Истории еще нет</p>
+            </div>
+
+            <button data-key=" " id="btn-open" class="block-result__btn-open">
+               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-caret-down-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/></svg>
+               </button>
+               <!-- Кнопка очистки истории -->
+            <button id="btn-clear" class="block-result__btn-clear" onclick="clearHistory()">
+               <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                </svg>
+               </button>
+         </div>
+         <!-- Кнопки цифр -->
+         <div class="numbers">
+            <button data-key="1" onclick="inputNumber('1')" type="text" class="btn numbers__btn1">1</button>
+            <button data-key="2" onclick="inputNumber('2')" type="text" class="btn numbers__btn2">2</button>
+            <button data-key="3" onclick="inputNumber('3')" type="text" class="btn numbers__btn3">3</button>
+            <button data-key="4" onclick="inputNumber('4')" type="text" class="btn numbers__btn4">4</button>
+            <button data-key="5" onclick="inputNumber('5')" type="text" class="btn numbers__btn5">5</button>
+            <button data-key="6" onclick="inputNumber('6')" type="text" class="btn numbers__btn6">6</button>
+            <button data-key="7" onclick="inputNumber('7')" type="text" class="btn numbers__btn7">7</button>
+            <button data-key="8" onclick="inputNumber('8')" type="text" class="btn numbers__btn8">8</button>
+            <button data-key="9" onclick="inputNumber('9')" type="text" class="btn numbers__btn9">9</button>
+            <button data-key="0" onclick="inputNumber('0')" type="text" class="btn numbers__btn0">0</button>
+
+            <button data-key="Enter" onclick="result()" type="text" class="btn numbers__btn-equal">=</button>
+            <button data-key="Backspace" onclick="backspace()" type="text" class="btn btn-func numbers__btn-backspace">
+               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
+                  <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z"/>
+                </svg>
+            <button data-key="Delete" onclick="reset()" type="text" class="btn btn-func numbers__btn-reset">C</button>
+            <!-- Кнопки символов -->
+            <button data-key="/" onclick="inputSymbol('/')" type="text" class="btn btn-func numbers__btn-divide">÷</button>
+            <button data-key="*" onclick="inputSymbol('*')" type="text" class="btn btn-func numbers__btn-multiply">×</button>
+            <button data-key="-" onclick="inputSymbol('-')" type="text" class="btn btn-func numbers__btn-minus">-</button>
+            <button data-key="+" onclick="inputSymbol('+')" type="text" class="btn btn-func numbers__btn-plus">+</button>
+         </div>
+      </div>
+   </div>
+   <script src="script/jquery.min.js"></script>
+   <script src="script/script.js"></script>
+</body>
+</html>

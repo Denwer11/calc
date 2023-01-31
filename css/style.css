@@ -1,0 +1,284 @@
+body {
+  min-width: 400px;
+  padding: 0;
+  margin: 0;
+  font-size: 28px;
+  font-family: "Times New Roman";
+}
+
+.wrapper {
+  width: 400px;
+  min-height: 100%;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+.container {
+  position: absolute;
+  background: #02243b;
+  border-radius: 5px;
+  width: 350px;
+  height: 550px;
+}
+
+.scrollbar {
+  width: 6px;
+}
+
+.scrollbar-track {
+  background: none;
+}
+
+
+.block-result {
+  position: relative;
+  background: #02243b;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+  height: 100px;
+  padding-top: 15px;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.block-result__output {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: 30px;
+  padding: 0 10px;
+  border: none;
+  text-align: right;
+  background: none;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.block-result__input {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  height: 50px;
+  padding: 0 10px;
+  border: none;
+  text-align: right;
+  background: none;
+  font-size: 35px;
+  color: #fff;
+}
+
+.block-result__btn-open {
+  position: absolute;
+  bottom: 4px;
+  left: 162px;
+  background: none;
+  border: none;
+  border-radius: 30px;
+  color: #33C3F5;
+  font-size: 20px;
+  padding: 0;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.block-result__btn-clear {
+  display: none;
+  position: absolute;
+  left: 10px;
+  bottom: 7px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 25px;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.block-result-full {
+  height: 540px;
+  border-radius: 10px;
+}
+
+.history {
+  width: 340px;
+  height: 450px;
+  padding: 0 10px;
+  text-align: right;
+  margin: 20px auto 0;
+  overflow-y: scroll;
+}
+
+.history__item1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+.history__item2 {
+  margin: 0 0 20px;
+  color: #fff;
+}
+
+.history__img {
+  width: 70px;
+  height: 70px;
+  display: block;
+  margin: 130px 0 0 130px;
+}
+
+.history__title {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+
+.btn {
+  outline: none;
+  border: none;
+  background: #fff;
+  text-align: center;
+  font-size: 28px;
+  border-radius: 10px;
+}
+
+.btn-func {
+  background: #33C3F5;
+}
+
+.numbers {
+  position: absolute;
+  bottom: 20px;
+  height: 400px;
+  width: 355px;
+  user-select: none;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 70px 70px 70px 70px;
+  grid-template-rows: 70px 70px 70px 70px 70px;
+  justify-content: center;
+}
+
+.bi-backspace-fill{
+  padding-top: 7px;
+  color: #02243b;
+}
+
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: white;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: white;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: white;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: white;
+}
+
+
+.numbers__btn1 {
+  grid-column: 1/2;
+  grid-row: 4/5;
+}
+
+.numbers__btn2 {
+  grid-column: 2/3;
+  grid-row: 4/5;
+}
+
+.numbers__btn3 {
+  grid-column: 3/4;
+  grid-row: 4/5;
+}
+
+.numbers__btn4 {
+  grid-column: 1/2;
+  grid-row: 3/4;
+}
+
+.numbers__btn5 {
+  grid-column: 2/3;
+  grid-row: 3/4;
+}
+
+.numbers__btn6 {
+  grid-column: 3/4;
+  grid-row: 3/4;
+}
+
+.numbers__btn7 {
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.numbers__btn8 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.numbers__btn9 {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+.numbers__btn0 {
+  grid-column: 4/5;
+  grid-row: 4/5;
+}
+
+.numbers__btn-backspace {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.numbers__btn-cooma {
+  grid-column: 1/2;
+  grid-row: 5/6;
+}
+
+.numbers__btn-reset {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.numbers__btn-divide {
+  grid-column: 4/5;
+  grid-row: 2/3;
+}
+
+.numbers__btn-multiply {
+  grid-column: 4/5;
+  grid-row: 3/4;
+}
+
+.numbers__btn-minus {
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+
+.numbers__btn-plus {
+  grid-column: 4/5;
+  grid-row: 1/2;
+}
+
+.numbers__btn-equal {
+  grid-column: 1/6;
+  grid-row: 5/6;
+  background: #33C3F5;
+}

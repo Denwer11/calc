@@ -1,3 +1,5 @@
-# calc
-
-Калькулятор на js
+# Calculator
+# Technologies
+  - Html
+  - Css
+  - JavaScript
